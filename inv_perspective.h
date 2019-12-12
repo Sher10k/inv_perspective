@@ -1,11 +1,13 @@
 #ifndef INV_PERSPECTIVE_H
 #define INV_PERSPECTIVE_H
 
+#include <iostream>
+
 // opencv
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-//#include <opencv2/calib3d.hpp>
+#include <opencv2/calib3d.hpp>
 
 /**
  * @brief inv_perspective
@@ -17,7 +19,8 @@
  * @param roi_left  - left border [ in meter ]
  * @param roi_right - right border [ in meter ]
  * @param length    - length [ in meter ]
- * @param scale     - scale output image [ N pix = 1 meter ]
+ * @param shift     - Camera shift [ in meter ]
+ * @param scale     - scale output image [ units ]
  */
 
 void inv_perspective( cv::Mat &src, 
@@ -28,6 +31,7 @@ void inv_perspective( cv::Mat &src,
                       float roi_left,
                       float roi_right,
                       float length,
+                      float shift,
                       int scale );
 
 
